@@ -1,0 +1,159 @@
+// =============================================================================
+// MAX design kit — tokens
+// Source of truth: MAX web (web.max.ru) default light theme = theme `space`,
+// scheme `light`, accent #007aff. Every value is copied verbatim from the
+// extracted design spec; the originating MAX custom-property name is cited
+// in a trailing comment.
+// Plain SCSS variables only — no CSS is emitted by this file.
+// =============================================================================
+
+// -----------------------------------------------------------------------------
+// Backgrounds
+// -----------------------------------------------------------------------------
+$color-bg-primary: #fff; // --background-primary
+$color-bg-secondary: #f5f7fa; // --background-secondary
+$color-bg-surface: #edeef2; // --background-surface
+$color-bg-card: #fff; // --background-card
+
+// Subtle translucent fills used by overlays / hover states.
+$color-bg-tertiary: #0909090d; // --background-tertiary
+$color-bg-overlay: #0c0d0e52; // --background-overlay
+
+// -----------------------------------------------------------------------------
+// Text / icons
+// -----------------------------------------------------------------------------
+$color-text-primary: #060708; // --text-primary
+$color-text-secondary: #060708ad; // --text-secondary
+$color-text-mute: #06070866; // --text-mute
+// NOTE: MAX has no `--text-link`. Global links use `--text-themed` (#007aff);
+// links inside message bubbles use `--bubbles-text-link` (#0784b8), see below.
+$color-text-link: #007aff; // --text-themed
+
+$color-icon-primary: #060708d6; // --icon-primary
+$color-icon-secondary: #060708a3; // --icon-secondary
+$color-icon-mute: #06070847; // --icon-mute
+
+$color-divider-primary: #0c0d0e29; // --divider-primary
+$color-divider-secondary: #0c0d0e0f; // --divider-secondary
+
+// -----------------------------------------------------------------------------
+// Accent / action
+// -----------------------------------------------------------------------------
+$color-accent: #007aff; // --button-primary
+$color-accent-contrast: #fff; // --button-primary-contrast
+$color-accent-hover: #479fff; // --states-button-primary-hover
+$color-accent-pressed: #006ee5; // --states-button-primary-pressed
+$color-accent-disabled: #007aff7a; // --states-button-primary-disabled
+$color-secondary: #e9ebf1; // --button-secondary
+
+$color-positive: #1abe43; // --text-positive (--button-positive, --icon-positive)
+$color-negative: #ff303c; // --text-negative (--button-negative, --icon-negative)
+
+// -----------------------------------------------------------------------------
+// Message bubbles ([data-bubbles-variant=incoming|outgoing], space light)
+// -----------------------------------------------------------------------------
+$color-bubble-in: #fff; // --bubbles-background-bubble [incoming]
+$color-bubble-out: #e9fdff; // --bubbles-background-bubble [outgoing]
+$color-bubble-action: #0f8ec2; // --bubbles-background-action [both]
+$color-bubble-action-text: #0784b8; // --bubbles-text-action / --bubbles-text-author
+$color-bubble-link: #0784b8; // --bubbles-text-link [both]
+$color-bubble-in-text: #060708; // --bubbles-text-body [incoming]
+$color-bubble-out-text: #011c29; // --bubbles-text-body [outgoing]
+$color-bubble-in-time: #06070885; // --bubbles-text-time [incoming]
+$color-bubble-out-time: #0784b8; // --bubbles-text-time [outgoing]
+$color-bubble-reaction: #0f8ec214; // --bubbles-background-reaction-inside-others
+
+// -----------------------------------------------------------------------------
+// Radii
+// -----------------------------------------------------------------------------
+$radius-bubble-regular: 16px; // --border-radius-local-bubble-regular
+$radius-bubble-stack-corner: 6px; // --border-radius-local-bubble-stack-corner
+$radius-capsule: 10px; // --border-radius-local-capsule
+$radius-cell-chat: 16px; // --border-radius-local-cell-chat
+
+$radius-common-s: 8px; // --border-radius-common-s (--size-8)
+$radius-common-m: 12px; // --border-radius-common-m (--size-12)
+$radius-common-l: 16px; // --border-radius-common-l (--size-16)
+$radius-common-xl: 20px; // --border-radius-common-xl (--size-20)
+$radius-auth-card: 28px; // --size-28 (auth card radius)
+
+// -----------------------------------------------------------------------------
+// Size scale (--size-*)
+// -----------------------------------------------------------------------------
+$size-0: 0px; // --size-0
+$size-1: 1px; // --size-1
+$size-2: 2px; // --size-2
+$size-4: 4px; // --size-4
+$size-6: 6px; // --size-6
+$size-8: 8px; // --size-8
+$size-10: 10px; // --size-10
+$size-12: 12px; // --size-12
+$size-14: 14px; // --size-14
+$size-16: 16px; // --size-16
+$size-18: 18px; // --size-18
+$size-20: 20px; // --size-20
+$size-24: 24px; // --size-24
+$size-28: 28px; // --size-28
+$size-32: 32px; // --size-32
+$size-36: 36px; // --size-36
+$size-40: 40px; // --size-40
+$size-44: 44px; // --size-44
+$size-48: 48px; // --size-48
+$size-52: 52px; // --size-52
+$size-56: 56px; // --size-56
+$size-60: 60px; // --size-60
+$size-64: 64px; // --size-64
+$size-72: 72px; // --size-72
+$size-80: 80px; // --size-80
+$size-88: 88px; // --size-88
+$size-96: 96px; // --size-96
+
+// Layout sizes (from MAX local size tokens)
+$size-chat-column: 732px; // --max-content-width (injected at runtime)
+$size-composer-max: 740px; // .composer max-width
+$size-rail: 77px; // .navigation width
+$size-panel-min: 260px; // --size-local-panel-size-secondary-min
+$size-panel-base: 393px; // --size-local-panel-size-secondary-base
+$size-panel-max: 592px; // --size-local-panel-size-secondary-max
+$size-bubble-max: 480px; // --size-local-bubbles-text-bubble-width-max
+
+// -----------------------------------------------------------------------------
+// Fonts
+// -----------------------------------------------------------------------------
+// stylelint-disable-next-line
+$font-family:
+  -apple-system, BlinkMacSystemFont, 'Roboto', system-ui, Avenir, Helvetica, Arial, sans-serif; // --font
+$font-family-mono: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, monospace; // monospace
+
+// -----------------------------------------------------------------------------
+// Type scale (size / line-height / weight / letter-spacing)
+// -----------------------------------------------------------------------------
+// Conversation title (`.mx-chat-header__title`)
+$font-title-size: 24px; // --font-header-size
+$font-title-line-height: 28px; // --font-header-line-height
+$font-title-weight: 600; // --font-header-weight
+$font-title-letter-spacing: 0; // --font-header-letter-spacing
+
+// Message body (bubble text)
+$font-message-size: 16px; // --font-markdown-message-base-size
+$font-message-line-height: 20px; // --font-markdown-message-base-line-height
+$font-message-weight: 400; // --font-markdown-message-base-weight
+$font-message-letter-spacing: 0; // --font-markdown-message-base-letter-spacing
+
+// Meta / timestamp (bubble tag)
+$font-meta-size: 11px; // --font-bubble-tag-size
+$font-meta-line-height: 14px; // --font-bubble-tag-line-height
+$font-meta-weight: 400; // --font-bubble-tag-weight
+$font-meta-letter-spacing: 0.3px; // --font-bubble-tag-letter-spacing
+
+// Small / description (chat-list timestamp, subtitles)
+$font-small-size: 13px; // --font-description-size
+$font-small-line-height: 16px; // --font-description-line-height
+$font-small-weight: 400; // --font-description-weight
+$font-small-letter-spacing: 0.2px; // --font-description-letter-spacing
+
+// Applied list roles (`.mx-list-item`)
+$font-list-title-size: 15px; // --font-detail-size
+$font-list-title-line-height: 20px; // --font-detail-line-height
+$font-list-title-weight: 500; // .title.svelte-q2jdqb
+$font-list-text-weight: 400; // .text.svelte-q2jdqb

@@ -1,0 +1,464 @@
+// =============================================================================
+// MAX design kit — components
+// NEW, standalone class API for a controlled migration. Not imported anywhere
+// yet (see docs/design-kit.md). Every class is prefixed `mx-` to avoid clashing
+// with the current app styles.
+// =============================================================================
+
+@use 'tokens' as *;
+@use 'mixins' as *;
+
+// -----------------------------------------------------------------------------
+// Shell — `.mx-app`
+// 3 columns: nav rail | chat list | conversation.
+// -----------------------------------------------------------------------------
+.mx-app {
+  display: grid;
+  grid-template-columns: $size-rail minmax($size-panel-min, $size-panel-base) 1fr;
+  width: 100%;
+  height: 100%;
+  background: $color-bg-secondary;
+  color: $color-text-primary;
+  font-family: $font-family;
+  -webkit-font-smoothing: antialiased;
+}
+
+// -----------------------------------------------------------------------------
+// Left navigation rail — `.mx-rail` (77px)
+// -----------------------------------------------------------------------------
+.mx-rail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $size-8;
+  width: $size-rail;
+  min-width: $size-rail;
+  height: 100%;
+  padding: $size-12 $size-0;
+  background: $color-bg-primary;
+  border-right: 1px solid $color-divider-secondary;
+
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: $size-44;
+    height: $size-44;
+    border: 0;
+    border-radius: 50%;
+    background: transparent;
+    color: $color-icon-secondary;
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      color 0.15s ease;
+
+    &:hover {
+      background: $color-bg-secondary;
+      color: $color-icon-primary;
+    }
+
+    &--active {
+      background: $color-accent-disabled;
+      color: $color-accent;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Chat list — `.mx-list` / `.mx-list-item`
+// -----------------------------------------------------------------------------
+.mx-list {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  overflow-y: auto;
+  padding: $size-24 $size-8 $size-16;
+  background: $color-bg-primary;
+  border-right: 1px solid $color-divider-secondary;
+}
+
+.mx-list-item {
+  display: grid;
+  grid-template-areas:
+    'avatar title meta'
+    'avatar preview meta';
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto;
+  align-items: center;
+  column-gap: $size-12;
+  row-gap: $size-2;
+  width: 100%;
+  padding: 9px 11px;
+  border: 0;
+  border-radius: $radius-cell-chat;
+  background: $color-bg-primary;
+  color: $color-text-primary;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+
+  &:hover {
+    background: $color-bg-secondary;
+  }
+
+  &--active {
+    background: #007aff14; // --states-background-card-selected
+  }
+
+  > .mx-avatar {
+    grid-area: avatar;
+  }
+
+  &__title {
+    grid-area: title;
+    @include truncate;
+    font-weight: $font-list-title-weight;
+    font-size: $font-list-title-size;
+    line-height: $font-list-title-line-height;
+    font-family: $font-family;
+    color: $color-text-primary;
+  }
+
+  &__preview {
+    grid-area: preview;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-weight: $font-list-text-weight;
+    font-size: $font-list-title-size;
+    line-height: $font-list-title-line-height;
+    font-family: $font-family;
+    color: $color-text-secondary;
+  }
+
+  &__meta {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: $size-4;
+    grid-area: meta;
+  }
+
+  &__time {
+    font-weight: $font-small-weight;
+    font-size: $font-small-size;
+    line-height: $font-small-line-height;
+    font-family: $font-family;
+    color: $color-text-mute;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+
+  &__unread {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: $size-20;
+    height: $size-20;
+    padding: $size-0 $size-6;
+    border-radius: $radius-capsule;
+    background: $color-accent;
+    color: $color-accent-contrast;
+    font-size: $font-small-size;
+    font-weight: 600;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Avatar — `.mx-avatar` with `--56` / `--40` / `--32`
+// -----------------------------------------------------------------------------
+.mx-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 auto;
+  width: $size-40;
+  height: $size-40;
+  overflow: hidden;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #8ec5ff, $color-accent);
+  color: $color-accent-contrast;
+  font-weight: 600;
+  font-size: 15px;
+  user-select: none;
+
+  &--56 {
+    width: $size-56;
+    height: $size-56;
+    font-size: 19px;
+  }
+
+  &--40 {
+    width: $size-40;
+    height: $size-40;
+  }
+
+  &--32 {
+    width: $size-32;
+    height: $size-32;
+    font-size: $font-small-size;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Conversation — `.mx-chat` / `.mx-chat-header`
+// -----------------------------------------------------------------------------
+.mx-chat {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  background: $color-bg-secondary;
+}
+
+.mx-chat-header {
+  display: flex;
+  align-items: center;
+  gap: $size-12;
+  min-height: $size-60;
+  padding: $size-0 $size-16;
+  background: $color-bg-primary;
+  border-bottom: 1px solid $color-divider-secondary;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__title {
+    @include truncate;
+    font-weight: $font-title-weight;
+    font-size: $font-title-size;
+    line-height: $font-title-line-height;
+    font-family: $font-family;
+    letter-spacing: $font-title-letter-spacing;
+    color: $color-bubble-action-text;
+  }
+
+  &__subtitle {
+    @include truncate;
+    font-weight: $font-meta-weight;
+    font-size: $font-meta-size;
+    line-height: $font-meta-line-height;
+    font-family: $font-family;
+    color: $color-text-mute;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Message stream — `.mx-messages`
+// Centered 732px column; 1px between consecutive messages, 4px at the edges.
+// -----------------------------------------------------------------------------
+.mx-messages {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: $size-1;
+  width: 100%;
+  max-width: $size-chat-column;
+  min-height: 0;
+  margin: $size-0 auto;
+  padding: $size-4 $size-16;
+  overflow-y: auto;
+}
+
+// -----------------------------------------------------------------------------
+// Bubble — `.mx-bubble--in` / `.mx-bubble--out`
+// -----------------------------------------------------------------------------
+.mx-bubble {
+  position: relative;
+  max-width: min(#{$size-bubble-max}, 100%);
+  padding: $size-8 $size-10 $size-20;
+  font-weight: $font-message-weight;
+  font-size: $font-message-size;
+  line-height: $font-message-line-height;
+  font-family: $font-family;
+  letter-spacing: $font-message-letter-spacing;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+
+  &--in {
+    align-self: flex-start;
+    @include bubble(in);
+  }
+
+  &--out {
+    align-self: flex-end;
+    @include bubble(out);
+  }
+
+  &__text {
+    display: block;
+  }
+
+  &__meta {
+    position: absolute;
+    right: $size-10;
+    bottom: $size-4;
+    display: inline-flex;
+    align-items: center;
+    gap: $size-2;
+    font-weight: $font-meta-weight;
+    font-size: $font-meta-size;
+    line-height: $font-meta-line-height;
+    font-family: $font-family;
+    letter-spacing: $font-meta-letter-spacing;
+    color: $color-bubble-in-time;
+    font-variant-numeric: tabular-nums;
+  }
+
+  &--out &__meta {
+    color: $color-bubble-out-time;
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Composer — `.mx-composer`
+// 740px column, pill input, round send button.
+// -----------------------------------------------------------------------------
+.mx-composer {
+  display: flex;
+  align-items: flex-end;
+  gap: $size-8;
+  width: 100%;
+  max-width: $size-composer-max;
+  margin: $size-0 auto;
+  padding: $size-0 $size-16 $size-16;
+
+  &__input {
+    @include pill-input;
+    flex: 1;
+    min-height: $size-40;
+    max-height: 140px;
+    padding: $size-10 $size-16;
+    font-weight: $font-message-weight;
+    font-size: $font-message-size;
+    line-height: $font-message-line-height;
+    font-family: $font-family;
+    resize: none;
+    outline: none;
+
+    &:focus {
+      box-shadow: inset 0 0 0 1px $color-accent;
+    }
+  }
+
+  &__send {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 $size-44;
+    width: $size-44;
+    height: $size-44;
+    border: 0;
+    border-radius: 50%;
+    background: $color-accent;
+    color: $color-accent-contrast;
+    cursor: pointer;
+    transition:
+      background 0.15s ease,
+      opacity 0.15s ease;
+
+    &:hover {
+      background: $color-accent-hover;
+    }
+
+    &:disabled {
+      background: $color-accent-disabled;
+      cursor: not-allowed;
+    }
+  }
+}
+
+// -----------------------------------------------------------------------------
+// Auth screen — `.mx-auth`
+// 28deg teal -> blue gradient + space doodle pattern overlay + white card.
+// -----------------------------------------------------------------------------
+.mx-auth {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  overflow: hidden auto;
+  background: linear-gradient(28deg, #99d5d7 8.03%, #80bcff 91.51%);
+
+  // Space doodle used as a repeating mask over a #007aff 30% fill.
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: #007aff4d; // --chat-background-pattern-color
+    -webkit-mask-image: url('../../assets/max-pattern.svg');
+    mask-image: url('../../assets/max-pattern.svg');
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-size: auto;
+    mask-size: auto;
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+  }
+
+  &__card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 580px;
+    min-height: 696px;
+    padding: $size-48 $size-12 $size-0;
+    background: $color-bg-primary;
+    border: 1px solid #0000001a; // --bubbles-system-stroke-step-2
+    border-radius: $radius-auth-card;
+    box-shadow: 0 4px 24px #00000014;
+    -webkit-backdrop-filter: blur(25px);
+    backdrop-filter: blur(25px);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: $size-24;
+    width: 360px;
+  }
+
+  &__title {
+    font-weight: $font-title-weight;
+    font-size: $font-title-size;
+    line-height: $font-title-line-height;
+    font-family: $font-family;
+    color: $color-text-primary;
+    text-align: center;
+  }
+
+  &__subtitle {
+    font-weight: $font-small-weight;
+    font-size: $font-small-size;
+    line-height: $font-small-line-height;
+    font-family: $font-family;
+    color: $color-text-secondary;
+    text-align: center;
+  }
+
+  &__link {
+    font-weight: $font-list-title-weight;
+    font-size: $font-list-title-size;
+    line-height: $font-list-title-line-height;
+    font-family: $font-family;
+    color: $color-accent;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

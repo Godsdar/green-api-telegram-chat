@@ -1,0 +1,17 @@
+node_modules
+dist
+dist-ssr
+coverage
+*.local
+.env
+.env.*
+!.env.example
+.DS_Store
+*.log
+.vite
+test-results
+playwright-report
+blob-report
+
+# personal interview prep, not part of the deliverable
+docs/interview-prep.md

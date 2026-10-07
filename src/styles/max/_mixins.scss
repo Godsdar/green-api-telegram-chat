@@ -1,0 +1,49 @@
+// =============================================================================
+// MAX design kit — mixins
+// Small, composable helpers built on `_tokens.scss`. No CSS is emitted unless
+// a mixin is `@include`d.
+// =============================================================================
+
+@use 'tokens' as *;
+
+// Message bubble. `$side` is `in` (received, aligned left) or `out` (sent,
+// aligned right). Applies the regular 16px radius with the 6px stack corner on
+// the reply side plus the correct background/text colors.
+@mixin bubble($side) {
+  border-radius: $radius-bubble-regular;
+
+  @if $side == in {
+    background: $color-bubble-in;
+    color: $color-bubble-in-text;
+    border-bottom-left-radius: $radius-bubble-stack-corner;
+  } @else if $side == out {
+    background: $color-bubble-out;
+    color: $color-bubble-out-text;
+    border-bottom-right-radius: $radius-bubble-stack-corner;
+  } @else {
+    @error "bubble(): $side must be `in` or `out`, got `#{$side}`";
+  }
+}
+
+// Single-line ellipsis.
+@mixin truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+// Centered message column (732px max, per `--max-content-width`).
+@mixin chat-column {
+  width: 100%;
+  max-width: $size-chat-column;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+// Rounded pill field used by the composer / search inputs.
+@mixin pill-input {
+  border: 0;
+  border-radius: $radius-capsule;
+  background: $color-bg-surface;
+  color: $color-text-primary;
+}
