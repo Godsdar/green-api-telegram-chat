@@ -50,8 +50,8 @@ API у GREEN-API единый для Telegram / WhatsApp / MAX
 
 - **React 18 + TypeScript + Vite**
 - **[@maxhub/max-ui](https://www.npmjs.com/package/@maxhub/max-ui)** - официальный UI Kit
-  мессенджера MAX (кнопки, поля, ячейки списка, аватары, типизация). Интерфейс
-  собран на нём, поэтому выглядит как MAX, а не «в стиле мессенджера».
+  мессенджера MAX. Кнопки, поля, ячейки списка и аватары здесь - родные
+  компоненты MAX, со своим `styles.css`.
 - **Redux Toolkit + RTK Query** (тот же паттерн опроса, что в `green-api/green-api-chat`)
 - **i18next / react-i18next** (ru, en)
 - **Sass**
