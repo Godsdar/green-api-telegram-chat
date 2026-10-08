@@ -54,7 +54,6 @@ Telegram, WhatsApp и MAX. Чтобы переключиться на MAX, ну�
 
 ![Экран подключения](docs/screenshots/01-connect.png)
 ![Чат](docs/screenshots/02-chat.png)
-![Мобильный вид](docs/screenshots/03-mobile-chat.png)
 
 ## Стек
 

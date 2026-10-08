@@ -44,7 +44,5 @@ test.describe('GREEN-API chat', () => {
     const messages = page.locator('.chat-window__messages');
     await expect(messages.getByText('Привет! Это тест со стороны получателя.')).toBeVisible();
     await expect(page.locator('.sidebar')).toBeHidden();
-
-    await page.screenshot({ path: 'docs/screenshots/03-mobile-chat.png' });
   });
 });
