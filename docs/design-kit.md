@@ -112,6 +112,10 @@ Full `--size-*` scale: `$size-0: 0px`, `$size-1: 1px`, `$size-2: 2px`,
 ### Font & type scale
 
 `$font-family: -apple-system, BlinkMacSystemFont, "Roboto", system-ui, Avenir, Helvetica, Arial, sans-serif` (`--font`), base `Roboto`.
+Roboto is also self-hosted (`src/assets/fonts/`, 400/500/600, subsets cyrillic +
+cyrillic-ext + latin) with the exact woff2 files MAX serves, so the fallback on
+platforms without a system Roboto (Windows, Android) matches MAX instead of
+dropping to Segoe UI.
 
 | role | SCSS prefix | size / line-height | weight | letter-spacing | MAX token |
 |---|---|---|---|---|---|

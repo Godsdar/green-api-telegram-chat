@@ -3,6 +3,34 @@
 // extracted MAX design spec (see docs/design-kit.md).
 @use 'max/tokens' as *;
 
+// Roboto - the same woff2 files MAX ships (v51, subsets cyrillic + cyrillic-ext
+// + latin). MAX puts the system font first in its stack, so this only kicks in
+// on platforms without a system Roboto (Windows / Android); there the fallback
+// now matches MAX instead of dropping to Segoe UI.
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/roboto-400.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('../assets/fonts/roboto-500.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('../assets/fonts/roboto-600.woff2') format('woff2');
+}
+
 * {
   box-sizing: border-box;
 }
