@@ -20,6 +20,10 @@ export const errorToMessageKey = (error: unknown): string => {
   return 'connection.error.unknown';
 };
 
+/**
+ * Owns the connection lifecycle: verify the instance, enable HTTP API
+ * receiving via setSettings, auto-connect from stored credentials, disconnect.
+ */
 export const useConnection = () => {
   const dispatch = useAppDispatch();
   const credentials = useAppSelector((state) => state.credentials);

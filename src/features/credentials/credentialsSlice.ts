@@ -1,3 +1,4 @@
+/** Holds the GREEN-API connection credentials (apiUrl, idInstance, token). */
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { DEFAULT_API_URL } from '../../config';
 

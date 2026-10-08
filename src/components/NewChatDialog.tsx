@@ -11,6 +11,7 @@ interface Props {
   onClose: () => void;
 }
 
+/** Modal that creates a chat from a phone number via checkAccount. */
 export const NewChatDialog = ({ open, onClose }: Props) => {
   const { t } = useTranslation();
   const dispatch = useAppDispatch();

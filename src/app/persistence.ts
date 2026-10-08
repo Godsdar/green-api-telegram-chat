@@ -1,3 +1,4 @@
+/** Persists GREEN-API credentials in localStorage (load on start, save on change). */
 import { STORAGE_KEY } from '../config';
 import {
   initialCredentialsState,

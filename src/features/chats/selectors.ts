@@ -1,3 +1,4 @@
+/** Memoized selectors for the chat list (sorted by activity) and active chat. */
 import { createSelector } from '@reduxjs/toolkit';
 import type { RootState } from '../../app/store';
 import type { Chat } from './chatsSlice';

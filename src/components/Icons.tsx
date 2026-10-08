@@ -2,6 +2,7 @@ import type { SVGProps } from 'react';
 
 type IconProps = SVGProps<SVGSVGElement>;
 
+/** Inline SVG icons (currentColor, 24x24 grid) used across the UI. */
 const base = (props: IconProps) => ({
   width: 20,
   height: 20,

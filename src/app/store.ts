@@ -1,3 +1,7 @@
+/**
+ * Redux store: credentials, connection and chats slices plus the RTK Query
+ * GREEN-API client. Saves credentials to localStorage on every change.
+ */
 import { configureStore } from '@reduxjs/toolkit';
 import { greenApi } from '../api/greenApi';
 import { chatsReducer } from '../features/chats/chatsSlice';

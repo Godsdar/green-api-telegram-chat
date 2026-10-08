@@ -1,3 +1,4 @@
+/** Russian translation dictionary. */
 export const ru = {
   app: {
     title: 'GREEN-API Chat',

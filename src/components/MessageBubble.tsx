@@ -23,6 +23,7 @@ const StatusIcon = ({ status }: { status: NonNullable<ChatMessage['status']> }) 
   }
 };
 
+/** A single message bubble with time and, for outgoing, a status icon. */
 export const MessageBubble = ({ message }: Props) => {
   const { t, i18n } = useTranslation();
   const modifier = message.outgoing ? 'bubble--out' : 'bubble--in';

@@ -9,6 +9,7 @@ interface Props {
   chatId: string;
 }
 
+/** Text input + send button; Enter sends, Shift+Enter inserts a newline. */
 export const MessageComposer = ({ chatId }: Props) => {
   const { t } = useTranslation();
   const send = useSendMessage();

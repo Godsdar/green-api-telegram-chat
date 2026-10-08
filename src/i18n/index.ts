@@ -1,3 +1,4 @@
+/** i18n setup: ru (default) + en, remembers the choice in localStorage. */
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import { en } from './en';

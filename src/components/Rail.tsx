@@ -5,6 +5,7 @@ interface Props {
   onDisconnect: () => void;
 }
 
+/** Left rail: brand mark and the disconnect button. */
 export const Rail = ({ onDisconnect }: Props) => {
   const { t } = useTranslation();
 

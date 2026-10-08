@@ -7,6 +7,7 @@ interface Props {
   compact?: boolean;
 }
 
+/** Small connection status dot/label. */
 export const ConnectionBadge = ({ status, compact = false }: Props) => {
   const { t } = useTranslation();
   const label = t(`connection.status.${status}`);

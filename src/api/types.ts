@@ -1,3 +1,4 @@
+/** DTOs and type guards for GREEN-API responses, kept close to the wire format. */
 export interface GreenApiConfig {
   apiUrl: string;
   idInstance: string;

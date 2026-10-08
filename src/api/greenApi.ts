@@ -1,3 +1,8 @@
+/**
+ * RTK Query API for the GREEN-API methods this app uses: getStateInstance,
+ * setSettings, sendMessage, checkAccount, receiveNotification,
+ * deleteNotification and getChatHistory. Text-only by design.
+ */
 import { createApi } from '@reduxjs/toolkit/query/react';
 import { RECEIVE_TIMEOUT_SECONDS } from '../config';
 import { greenApiBaseQuery } from './baseQuery';

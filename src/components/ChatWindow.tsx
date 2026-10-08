@@ -10,6 +10,7 @@ import { ChevronLeftIcon } from './Icons';
 import { MessageBubble } from './MessageBubble';
 import { MessageComposer } from './MessageComposer';
 
+/** Active chat: header, day dividers, message bubbles and composer. */
 export const ChatWindow = () => {
   const { t, i18n } = useTranslation();
   const dispatch = useAppDispatch();

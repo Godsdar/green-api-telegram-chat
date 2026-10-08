@@ -8,6 +8,7 @@ interface Props {
   connection: ConnectionController;
 }
 
+/** Credentials form shown while disconnected. */
 export const ConnectScreen = ({ connection }: Props) => {
   const { t, i18n } = useTranslation();
   const [apiUrl, setApiUrl] = useState(connection.credentials.apiUrl);

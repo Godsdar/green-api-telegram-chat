@@ -1,3 +1,4 @@
+/** Connection status machine: disconnected -> connecting -> connected | error. */
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import type { InstanceState } from '../../api/types';
 

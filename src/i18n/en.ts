@@ -1,3 +1,4 @@
+/** English translation dictionary. */
 export const en = {
   app: {
     title: 'GREEN-API Chat',

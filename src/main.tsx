@@ -1,3 +1,7 @@
+/**
+ * App entry point: mounts the MAX UI kit, the Redux store, i18n and global
+ * styles around <App />.
+ */
 import { MaxUI } from '@maxhub/max-ui';
 import '@maxhub/max-ui/styles.css';
 import React from 'react';

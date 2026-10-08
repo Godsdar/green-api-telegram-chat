@@ -1,3 +1,4 @@
+/** HH:MM in the given locale (GREEN-API timestamps are in seconds). */
 export const formatTime = (timestampSeconds: number, lang = 'ru'): string => {
   const date = new Date(timestampSeconds * 1000);
   return date.toLocaleTimeString(lang, {
@@ -7,6 +8,7 @@ export const formatTime = (timestampSeconds: number, lang = 'ru'): string => {
   });
 };
 
+/** Stable per-day key used to insert the day dividers in the chat window. */
 export const dayKey = (timestampSeconds: number): string => {
   const date = new Date(timestampSeconds * 1000);
   return `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`;
@@ -20,6 +22,7 @@ export interface DayLabels {
   yesterday: string;
 }
 
+/** Human day label: "today" / "yesterday" / locale date. */
 export const formatDayLabel = (
   timestampSeconds: number,
   lang: string,
@@ -39,6 +42,7 @@ export const formatDayLabel = (
   return date.toLocaleDateString(lang, options);
 };
 
+/** Avatar initials: first letters of a name, or the last two digits of a number. */
 export const initials = (name: string): string => {
   const cleaned = name.replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
   if (!cleaned) return '?';

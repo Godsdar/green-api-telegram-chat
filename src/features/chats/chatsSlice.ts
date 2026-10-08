@@ -1,3 +1,8 @@
+/**
+ * Chat store: chats, messages, unread counters and the active chat. Sending is
+ * optimistic (temp id -> confirmed id); incoming messages are deduped by
+ * idMessage, and outgoing statuses are applied by idMessage.
+ */
 import { createSlice, nanoid, type PayloadAction } from '@reduxjs/toolkit';
 
 export type MessageStatus = 'pending' | 'sent' | 'delivered' | 'read' | 'failed';

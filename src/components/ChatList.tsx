@@ -19,6 +19,7 @@ interface Props {
   onNewChat: () => void;
 }
 
+/** Sidebar: searchable chat list with unread counters. */
 export const ChatList = ({ onNewChat }: Props) => {
   const { t, i18n } = useTranslation();
   const dispatch = useAppDispatch();

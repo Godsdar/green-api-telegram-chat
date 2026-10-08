@@ -9,6 +9,7 @@ interface Props {
   onDisconnect: () => void;
 }
 
+/** App shell: rail + chat list + chat window + new-chat dialog. */
 export const ChatLayout = ({ onDisconnect }: Props) => {
   const [newChatOpen, setNewChatOpen] = useState(false);
   const hasActiveChat = useAppSelector((state) => Boolean(state.chats.activeChatId));
