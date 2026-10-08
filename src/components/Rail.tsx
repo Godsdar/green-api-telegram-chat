@@ -11,7 +11,7 @@ export const Rail = ({ onDisconnect }: Props) => {
   return (
     <nav className="rail" aria-label={t('app.title')}>
       <span className="rail__brand" aria-hidden="true">
-        M
+        G
       </span>
       <span className="rail__spacer" />
       <button
