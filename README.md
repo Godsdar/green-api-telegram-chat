@@ -53,7 +53,8 @@ Telegram, WhatsApp и MAX. Чтобы переключиться на MAX, ну�
 фирменном градиенте MAX (`--gradient-purple`), favicon в той же гамме.
 
 ![Экран подключения](docs/screenshots/01-connect.png)
-![Чат](docs/screenshots/02-chat.png)
+![Новый чат по номеру](docs/screenshots/02-new-chat.png)
+![Чат](docs/screenshots/03-chat.png)
 
 ## Стек
 

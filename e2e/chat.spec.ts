@@ -6,7 +6,6 @@ test.describe('GREEN-API chat', () => {
     await page.goto('/');
     await expect(page.getByText('Подключите инстанс')).toBeVisible();
     await expect(page.getByRole('button', { name: 'Подключиться' })).toBeDisabled();
-    await page.screenshot({ path: 'docs/screenshots/01-connect.png' });
   });
 
   test('connects, receives and sends messages', async ({ page }) => {
@@ -27,8 +26,6 @@ test.describe('GREEN-API chat', () => {
     await page.getByPlaceholder('Введите сообщение').fill('Ответ из React-чата');
     await page.getByRole('button', { name: 'Отправить' }).click();
     await expect(messages.getByText('Ответ из React-чата')).toBeVisible();
-
-    await page.screenshot({ path: 'docs/screenshots/02-chat.png' });
   });
 
   test('mobile: opening a chat replaces the list with the conversation', async ({ page }) => {
