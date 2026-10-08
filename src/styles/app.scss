@@ -167,7 +167,7 @@ textarea:focus-visible {
     width: $size-48;
     height: $size-48;
     border-radius: $radius-common-m;
-    background: linear-gradient(150deg, #6a5cff 0%, #9a6bff 45%, #22a7ff 100%);
+    background: var(--gradient-purple, linear-gradient(155deg, #bf97ff 6.6%, #526eff 84.12%));
     color: #fff;
     font-weight: 700;
     font-size: $size-24;
@@ -352,7 +352,7 @@ textarea:focus-visible {
     height: $size-44;
     margin-bottom: $size-8;
     border-radius: $radius-common-m;
-    background: linear-gradient(150deg, #6a5cff 0%, #9a6bff 45%, #22a7ff 100%);
+    background: var(--gradient-purple, linear-gradient(155deg, #bf97ff 6.6%, #526eff 84.12%));
     color: #fff;
     font-weight: 700;
     font-size: $size-20;
